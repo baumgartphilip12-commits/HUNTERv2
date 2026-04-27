@@ -1,0 +1,168 @@
+{
+  "external_id": "apt35",
+  "name": "APT35",
+  "summary": "Iranian state-sponsored threat cluster tracked as APT35, Magic Hound, Charming Kitten, Mint Sandstorm, and TA453, focused on espionage against government, diplomacy, defense, academia, journalism, NGOs, dissidents, and Middle East policy targets. The cluster is known for patient social engineering, credential phishing, compromised or forged email personas, public-facing application exploitation, cloud-hosted malware delivery, PowerShell/VBScript/.NET backdoors, email and session theft with tooling such as HYPERSCRAPE, and proxy, tunneling, or remote-service follow-on activity.",
+  "aliases": [
+    "Charming Kitten",
+    "Magic Hound",
+    "Mint Sandstorm",
+    "Phosphorus",
+    "TA453",
+    "COBALT ILLUSION",
+    "ITG18",
+    "Newscaster",
+    "Ajax Security Team",
+    "CharmingCypress"
+  ],
+  "techniques": [
+    "T1566.002",
+    "T1566.003",
+    "T1598.003",
+    "T1586.002",
+    "T1190",
+    "T1221",
+    "T1204.002",
+    "T1059.001",
+    "T1059.005",
+    "T1547.001",
+    "T1053.005",
+    "T1105",
+    "T1071.001",
+    "T1114.002",
+    "T1539",
+    "T1090",
+    "T1572",
+    "T1021.001",
+    "T1056.001",
+    "T1567",
+    "T1003.001"
+  ],
+  "indicators": [
+    {
+      "type": "domain",
+      "value": "east-healthy-dress.glitch.me"
+    },
+    {
+      "type": "domain",
+      "value": "coral-polydactyl-dragonfruit.glitch.me"
+    },
+    {
+      "type": "domain",
+      "value": "kwhfibejjyxregxmnpcs.supabase.co"
+    },
+    {
+      "type": "domain",
+      "value": "epibvgvoszemkwjnplyc.supabase.co"
+    },
+    {
+      "type": "domain",
+      "value": "ndrrftqrlblfecpupppp.supabase.co"
+    },
+    {
+      "type": "domain",
+      "value": "cloud-document-edit.onrender.com"
+    },
+    {
+      "type": "domain",
+      "value": "sync-system-time.cf"
+    },
+    {
+      "type": "domain",
+      "value": "update-windows-security.tk"
+    },
+    {
+      "type": "domain",
+      "value": "dns-iprecords.tk"
+    },
+    {
+      "type": "domain",
+      "value": "universityofmhealth.biz"
+    },
+    {
+      "type": "domain",
+      "value": "oracle-java.cf"
+    },
+    {
+      "type": "domain",
+      "value": "communication-shield.site"
+    },
+    {
+      "type": "domain",
+      "value": "cdsa.xyz"
+    },
+    {
+      "type": "ip",
+      "value": "51.89.135.15"
+    },
+    {
+      "type": "ip",
+      "value": "51.89.169.201"
+    },
+    {
+      "type": "ip",
+      "value": "51.89.187.222"
+    },
+    {
+      "type": "ip",
+      "value": "136.243.108.14"
+    },
+    {
+      "type": "ip",
+      "value": "173.209.51.54"
+    },
+    {
+      "type": "ip",
+      "value": "49.13.15.66"
+    },
+    {
+      "type": "sha256",
+      "value": "f2dec56acef275a0e987844e98afcc44bf8b83b4661e83f89c6a2a72c5811d5f"
+    },
+    {
+      "type": "sha256",
+      "value": "ad55b4a40f9e52682d9d4f069914e09c941e8b77ca7b615e9deffccdfbc54145"
+    },
+    {
+      "type": "sha256",
+      "value": "64f39b858c1d784df1ca8eb895ac7eaf47bf39acf008ed4ae27a796ac90f841b"
+    },
+    {
+      "type": "sha256",
+      "value": "03d0e7ad4c12273a42e4c95d854408b98b0cf5ecf5f8c5ce05b24729b6f4e369"
+    },
+    {
+      "type": "sha256",
+      "value": "5d3ff202f20af915863eee45916412a271bae1ea3a0e20988309c16723ce4da5"
+    }
+  ],
+  "references": [
+    "https://attack.mitre.org/groups/G0059/",
+    "https://www.microsoft.com/en-us/security/security-insider/threat-landscape/mint-sandstorm",
+    "https://www.microsoft.com/en-us/security/blog/2024/01/17/new-ttps-observed-in-mint-sandstorm-campaign-targeting-high-profile-individuals-at-universities-and-research-orgs/",
+    "https://www.microsoft.com/en-us/security/blog/2023/04/18/nation-state-threat-actor-mint-sandstorm-refines-tradecraft-to-attack-high-value-targets/",
+    "https://blog.google/threat-analysis-group/countering-threats-iran/",
+    "https://blog.google/threat-analysis-group/new-iranian-apt-data-extraction-tool/",
+    "https://www.volexity.com/blog/2024/02/13/charmingcypress-innovating-persistence/",
+    "https://www.proofpoint.com/us/blog/threat-insight/best-laid-plans-ta453-targets-religious-figure-fake-podcast-invite-delivering"
+  ],
+  "extra_hunts": [
+    "Review rapport-building phishing chains that impersonate journalists, conference organizers, research institutes, policy experts, or trusted contacts, especially where the first messages are benign and later messages contain cloud-hosted links.",
+    "Audit Microsoft 365, Google Workspace, OWA, Gmail, Yahoo, and Outlook access after phishing exposure for session-cookie reuse, unusual mailbox access, suspicious delegate permissions, security-alert deletion, or bulk email retrieval.",
+    "Hunt for RAR or ZIP archives that unpack to double-extension LNK files, curl-driven downloads, VBScript or PowerShell payloads, and Run-key or scheduled-task persistence from user-writable paths.",
+    "Pivot from newly exploited internet-facing applications, web shells, Log4Shell, ProxyShell, ManageEngine, or Aspera exploitation into Impacket, RDP enablement, SSH tunneling, FRP/proxy use, credential dumping, and mailbox export.",
+    "Review connections to abused cloud and collaboration services such as Glitch, Supabase, OnRender, Dropbox, Google Sites, GitHub, Telegram API, and webhook-style endpoints, then pivot by user-agent, URI path, source identity, and timing."
+  ],
+  "status": "active",
+  "tags": [
+    "iran",
+    "state-sponsored",
+    "credential-phishing",
+    "social-engineering",
+    "identity-access",
+    "email-collection",
+    "custom-malware",
+    "cloud-abuse",
+    "powershell",
+    "authored"
+  ]
+}

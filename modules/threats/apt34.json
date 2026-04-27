@@ -1,0 +1,125 @@
+{
+  "external_id": "apt34",
+  "name": "APT34",
+  "summary": "Iranian cyber-espionage threat cluster tracked as OilRig, Hazel Sandstorm, and Earth Simnavaz, active since at least 2014 and focused on Middle Eastern and international government, energy, financial, chemical, telecommunications, and technology-service targets. Tradecraft includes spearphishing and public-facing server compromise, PowerShell/VBScript/.NET loaders, DNS and HTTP C2, Exchange/EWS and OWA abuse, IIS web shells, scheduled-task persistence, credential theft through password filters and mailbox access, and exfiltration through Exchange, FTP, or C2 channels.",
+  "aliases": [
+    "OilRig",
+    "Helix Kitten",
+    "COBALT GYPSY",
+    "IRN2",
+    "Hazel Sandstorm",
+    "EUROPIUM",
+    "Earth Simnavaz",
+    "Crambus",
+    "Evasive Serpens",
+    "TA452",
+    "ITG13"
+  ],
+  "techniques": [
+    "T1566.001",
+    "T1203",
+    "T1059.001",
+    "T1059.003",
+    "T1059.005",
+    "T1053.005",
+    "T1071.001",
+    "T1071.004",
+    "T1105",
+    "T1505.003",
+    "T1556.002",
+    "T1003.001",
+    "T1078.002",
+    "T1133",
+    "T1005",
+    "T1041",
+    "T1048.003",
+    "T1068",
+    "T1572",
+    "T1027"
+  ],
+  "indicators": [
+    {
+      "type": "domain",
+      "value": "withyourface.com"
+    },
+    {
+      "type": "domain",
+      "value": "sarmsoftware.com"
+    },
+    {
+      "type": "domain",
+      "value": "tecforsc-001-site1.gtempurl.com"
+    },
+    {
+      "type": "sha256",
+      "value": "7cbad6b3f505a199d6766a86b41ed23786bbb99dab9cae6c18936afdc2512f00"
+    },
+    {
+      "type": "sha256",
+      "value": "d5c1822a36f2e7107d0d4c005c26978d00bcb34a587bd9ccf11ae7761ec73fb7"
+    },
+    {
+      "type": "sha256",
+      "value": "13c27e5049a7fc5a36416f2c1ae49c12438d45ce50a82a96d3f792bfdacf3dcd"
+    },
+    {
+      "type": "sha256",
+      "value": "47d3e6c389cfdbc9cf7eb61f3051c9f4e50e30cf2d97499144e023ae87d68d5a"
+    },
+    {
+      "type": "sha256",
+      "value": "8a8a7a506fd57bde314ce6154f2484f280049f2bda504d43704b9ad412d5d618"
+    },
+    {
+      "type": "sha256",
+      "value": "64156f9ca51951a9bf91b5b74073d31c16873ca60492c25895c1f0f074787345"
+    },
+    {
+      "type": "sha256",
+      "value": "6e4f237ef084e400b43bc18860d9c781c851012652b558f57527cf61bee1e1ef"
+    },
+    {
+      "type": "sha256",
+      "value": "abfc8e9b4b02e196af83608d5aaef1771354b32c898852dff532bd8cfd2ce59d"
+    },
+    {
+      "type": "sha256",
+      "value": "98fb12a9625d600535df342551d30b27ed216fed14d9c6f63e8bf677cb730301"
+    }
+  ],
+  "references": [
+    "https://attack.mitre.org/groups/G0049/",
+    "https://cloud.google.com/blog/topics/threat-intelligence/targeted-attack-in-middle-east-by-apt34/",
+    "https://unit42.paloaltonetworks.com/dns-tunneling-in-the-wild-overview-of-oilrigs-dns-tunneling/",
+    "https://unit42.paloaltonetworks.com/unit42-oilrig-uses-updated-bondupdater-target-middle-eastern-government/",
+    "https://research.checkpoint.com/2021/irans-apt34-returns-with-an-updated-arsenal/",
+    "https://www.trendmicro.com/en_us/research/23/i/apt34-deploys-phishing-attack-with-new-malware.html",
+    "https://www.trendmicro.com/en_us/research/24/j/earth-simnavaz-cyberattacks.html"
+  ],
+  "extra_hunts": [
+    "Hunt for DNS tunneling from endpoints or servers: high-volume A/TXT/AAAA lookups, long encoded labels, many unique subdomains per parent domain, requestbin-style tunneling services, and DNS followed by HTTP or Exchange activity.",
+    "Review Exchange, OWA, EWS, and IIS telemetry for web shells, suspicious EWS bindings, unusual attachment-based outbound mail, unexpected mailbox access, and web server processes spawning PowerShell, cmd.exe, or .NET loaders.",
+    "Inspect scheduled-task persistence using names and paths similar to WindowsAppPool, AppPool, OneDriveStandaloneUpdater, SystemFailureReporter, Office356, or payloads launched every minute or every few minutes.",
+    "Hunt for malicious password filter activity: new DLLs under System32, changes to HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\\Notification Packages, and credential theft that continues after password resets.",
+    "Pivot from PowerShell, VBScript, macro-enabled Office documents, and .NET droppers into BONDUPDATER, SideTwist/Menorah-like behavior: host fingerprinting, Base64 or custom encoding, shell command execution, file upload, and file download.",
+    "Correlate web shell or Exchange compromise with follow-on credential dumping, ngrok or other tunneling tools, external remote-service logins, lateral movement to domain controllers, and exfiltration through Exchange, FTP, or C2.",
+    "Treat historical network IOCs as pivot seeds rather than blocking-only indicators; validate surrounding sessions, certificate history, passive DNS, mailbox activity, and host telemetry before escalating."
+  ],
+  "status": "active",
+  "tags": [
+    "iran",
+    "state-sponsored",
+    "espionage",
+    "middle-east",
+    "dns-c2",
+    "web-c2",
+    "exchange",
+    "ews",
+    "web-shell",
+    "credential-theft",
+    "spearphishing",
+    "powershell",
+    "dotnet",
+    "authored"
+  ]
+}

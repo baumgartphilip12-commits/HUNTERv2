@@ -1,0 +1,254 @@
+{
+  "aliases": [
+    "Elfin",
+    "HOLMIUM",
+    "Magnallium",
+    "Peach Sandstorm",
+    "Refined Kitten",
+    "Cobalt Trinity"
+  ],
+  "external_id": "apt33",
+  "extra_hunts": [
+    "Hunt for password spraying against cloud identity, VPN, and exposed remote-access surfaces, then pivot from successful sign-ins into valid-account persistence, MFA changes, Azure/Entra enumeration, and cloud-resource creation.",
+    "Review recruitment, aviation, defense, satellite, oil-and-gas, petrochemical, education, and government-themed lures, including malicious archive attachments, HTA links, Teams/LinkedIn social engineering, and files masquerading as policy or infrastructure documents.",
+    "Hunt for APT33/Peach Sandstorm tooling and tradecraft: Tickler, POWERTON, TURNEDUP, PoshC2, Empire, RMM tools such as AnyDesk, AD Explorer snapshots, LaZagne, Mimikatz, ProcDump, SniffPass, WMI persistence, scheduled tasks, and Registry Run keys.",
+    "Pivot from HTTP/S C2, Azure App Service infrastructure, non-standard HTTP ports, suspicious go-http-client authentication activity, SMB/RDP lateral movement, and FTP exfiltration into surrounding staging, credential access, and data-transfer behavior.",
+    "Review destructive-risk leads separately, including DROPSHOT, SHAPESHIFT, DEADWOOD, Shamoon-adjacent tradecraft, RawDisk-style driver usage, account access removal, disk-wipe behavior, service execution, and abnormal shutdown or file-deletion sequences."
+  ],
+  "indicators": [
+    {
+      "type": "domain",
+      "value": "boeing.servehttp.com"
+    },
+    {
+      "type": "domain",
+      "value": "alsalam.ddns.net"
+    },
+    {
+      "type": "domain",
+      "value": "ngaaksa.ddns.net"
+    },
+    {
+      "type": "domain",
+      "value": "ngaaksa.sytes.net"
+    },
+    {
+      "type": "domain",
+      "value": "vinnellarabia.myftp.org"
+    },
+    {
+      "type": "domain",
+      "value": "managehelpdesk.com"
+    },
+    {
+      "type": "domain",
+      "value": "microsoftupdated.com"
+    },
+    {
+      "type": "domain",
+      "value": "osupd.com"
+    },
+    {
+      "type": "domain",
+      "value": "mywinnetwork.ddns.net"
+    },
+    {
+      "type": "domain",
+      "value": "www.chromup.com"
+    },
+    {
+      "type": "domain",
+      "value": "www.securityupdated.com"
+    },
+    {
+      "type": "domain",
+      "value": "googlmail.net"
+    },
+    {
+      "type": "domain",
+      "value": "microsoftupdated.net"
+    },
+    {
+      "type": "domain",
+      "value": "syn.broadcaster.rocks"
+    },
+    {
+      "type": "domain",
+      "value": "www.googlmail.net"
+    },
+    {
+      "type": "domain",
+      "value": "staffmusic.org"
+    },
+    {
+      "type": "domain",
+      "value": "subreviews.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "satellite2.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "nodetestservers.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "satellitegardens.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "softwareservicesupport.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "getservicessuports.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "getservicessupports.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "getsupportsservices.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "satellitespecialists.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "satservicesdev.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "servicessupports.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "websupportprotection.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "supportsoftwarecenter.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "centersoftwaresupports.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "softwareservicesupports.azurewebsites.net"
+    },
+    {
+      "type": "domain",
+      "value": "getsdervicessupoortss.azurewebsites.net"
+    },
+    {
+      "type": "ip",
+      "value": "192.52.166.76"
+    },
+    {
+      "type": "ip",
+      "value": "108.62.118.240"
+    },
+    {
+      "type": "ip",
+      "value": "102.129.215.40"
+    },
+    {
+      "type": "ip",
+      "value": "76.8.60.64"
+    },
+    {
+      "type": "ip",
+      "value": "103.236.149.100"
+    },
+    {
+      "type": "ip",
+      "value": "85.206.161.214"
+    },
+    {
+      "type": "ip",
+      "value": "85.206.161.216"
+    },
+    {
+      "type": "ip",
+      "value": "89.45.35.235"
+    }
+  ],
+  "name": "APT33",
+  "references": [
+    "https://attack.mitre.org/groups/G0064/",
+    "https://cloud.google.com/blog/topics/threat-intelligence/apt33-insights-into-iranian-cyber-espionage/",
+    "https://cloud.google.com/blog/topics/threat-intelligence/overruled-containing-a-potentially-destructive-adversary/",
+    "https://www.microsoft.com/en-us/security/blog/2023/09/14/peach-sandstorm-password-spray-campaigns-enable-intelligence-collection-at-high-value-targets/",
+    "https://www.microsoft.com/en-us/security/blog/2024/08/28/peach-sandstorm-deploys-new-custom-tickler-malware-in-long-running-intelligence-gathering-operations/",
+    "https://malpedia.caad.fkie.fraunhofer.de/actor/apt33"
+  ],
+  "status": "active",
+  "summary": "Iranian state-linked threat cluster also tracked as Peach Sandstorm, HOLMIUM, Elfin, and Refined Kitten, active since at least 2013 and focused on intelligence collection against aviation/aerospace, defense, satellite, energy, oil-and-gas, petrochemical, education, and government targets. Observed tradecraft includes recruitment-themed spearphishing, password spraying, valid cloud accounts, Azure-hosted C2, custom backdoors such as Tickler, POWERTON, and TURNEDUP, PowerShell and VBScript execution, credential theft, SMB/RDP movement, RMM abuse, data staging/exfiltration, and destructive or wiper-adjacent capabilities.",
+  "tags": [
+    "iran",
+    "state-sponsored",
+    "irgc-linked",
+    "espionage",
+    "aerospace",
+    "defense",
+    "satellite",
+    "energy",
+    "oil-and-gas",
+    "petrochemical",
+    "government",
+    "education",
+    "password-spraying",
+    "valid-accounts",
+    "cloud",
+    "azure",
+    "spearphishing",
+    "c2",
+    "destructive-risk",
+    "shamoon-adjacent",
+    "credential-theft",
+    "authored"
+  ],
+  "techniques": [
+    "T1566.001",
+    "T1566.002",
+    "T1204.001",
+    "T1204.002",
+    "T1190",
+    "T1110.003",
+    "T1078",
+    "T1078.004",
+    "T1606.002",
+    "T1059.001",
+    "T1059.005",
+    "T1203",
+    "T1068",
+    "T1547.001",
+    "T1546.003",
+    "T1053.005",
+    "T1027.013",
+    "T1105",
+    "T1071.001",
+    "T1571",
+    "T1132.001",
+    "T1573.001",
+    "T1003.001",
+    "T1555",
+    "T1555.003",
+    "T1552.001",
+    "T1552.006",
+    "T1040",
+    "T1021.002",
+    "T1021.001",
+    "T1219",
+    "T1572",
+    "T1560.001",
+    "T1048.003",
+    "T1485",
+    "T1561.001",
+    "T1561.002"
+  ]
+}

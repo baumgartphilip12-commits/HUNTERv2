@@ -1,0 +1,140 @@
+{
+  "external_id": "apt39",
+  "name": "APT39",
+  "summary": "Iranian MOIS-linked cyber espionage cluster associated with Rana Intelligence Computing/Chafer activity, focused on surveillance and collection of personal, travel, telecommunications, academic, and government data using spearphishing, public-facing web compromise, OWA credential abuse, HTTP/DNS C2, proxying, credential theft, local staging, and exfiltration through C2, BITS, FTP, and web-service channels.",
+  "aliases": [
+    "Chafer",
+    "Remix Kitten",
+    "ITG07",
+    "Cadelspy",
+    "Remexi",
+    "Rana Intelligence Computing"
+  ],
+  "techniques": [
+    "T1566.001",
+    "T1566.002",
+    "T1190",
+    "T1505.003",
+    "T1078",
+    "T1059.001",
+    "T1059.005",
+    "T1059.006",
+    "T1059.010",
+    "T1053.005",
+    "T1071.001",
+    "T1071.004",
+    "T1102.002",
+    "T1041",
+    "T1048.003",
+    "T1560.001",
+    "T1074.001",
+    "T1003.001",
+    "T1021.001",
+    "T1021.002",
+    "T1090.001",
+    "T1090.002",
+    "T1105"
+  ],
+  "indicators": [
+    {
+      "type": "domain",
+      "value": "win10-update.com"
+    },
+    {
+      "type": "domain",
+      "value": "win7-update.com"
+    },
+    {
+      "type": "domain",
+      "value": "turkiyeburslari.tk"
+    },
+    {
+      "type": "domain",
+      "value": "ytb.services"
+    },
+    {
+      "type": "domain",
+      "value": "eseses.tk"
+    },
+    {
+      "type": "domain",
+      "value": "saveingone.com"
+    },
+    {
+      "type": "ip",
+      "value": "185.177.59.70"
+    },
+    {
+      "type": "ip",
+      "value": "134.119.217.87"
+    },
+    {
+      "type": "ip",
+      "value": "108.61.189.174"
+    },
+    {
+      "type": "ip",
+      "value": "185.165.116.47"
+    },
+    {
+      "type": "sha256",
+      "value": "0282b7705f13f9d9811b722f8d7ef8fef907bee2ef00bf8ec89df5e7d96d81ff"
+    },
+    {
+      "type": "sha256",
+      "value": "A1481B251328B50D268B815DEBD614F539039E6E7012C90B66DAEE717712D524"
+    },
+    {
+      "type": "md5",
+      "value": "9f7c280b20d021f0a0984d1ad0aeba41"
+    },
+    {
+      "type": "md5",
+      "value": "486aa8849c173450911f886116f4b5d6"
+    },
+    {
+      "type": "md5",
+      "value": "91e1793bd5f3f274ddb22b47662cb860"
+    },
+    {
+      "type": "md5",
+      "value": "43124f6d418b086f3107a8cb708c3d2b"
+    }
+  ],
+  "references": [
+    "https://attack.mitre.org/groups/G0087/",
+    "https://cloud.google.com/blog/topics/threat-intelligence/apt39-iranian-cyber-espionage-group-focused-on-personal-information",
+    "https://www.fbi.gov/contact-us/field-offices/boston/news/press-releases/fbi-releases-cybersecurity-advisory-on-previously-undisclosed-iranian-malware-used-to-monitor-dissidents-and-travel-and-telecommunications-companies",
+    "https://www.ic3.gov/CSA/2020/200917-2.pdf",
+    "https://home.treasury.gov/news/press-releases/sm1127",
+    "https://origin-unit42.paloaltonetworks.com/new-python-based-payload-mechaflounder-used-by-chafer/",
+    "https://securelist.com/chafer-used-remexi-malware/89538/",
+    "https://www.bitdefender.com/en-us/blog/labs/iranian-chafer-apt-targeted-air-transportation-and-government-in-kuwait-and-saudi-arabia"
+  ],
+  "extra_hunts": [
+    "Review OWA, VPN, and public-facing web-server access for stolen-credential use, SQL injection, ANTAK/ASPXSPY-style web shells, and unusual admin sessions followed by internal discovery.",
+    "Hunt for Rana/Chafer HTTP C2 patterns such as /update.php?req= with &m=d, &m=u, or &m=b parameters, /asp.asp?ui= host fingerprints, /service.html retrievals, and anomalous HTTP requests containing backslashes or host/user identifiers.",
+    "Inspect BITS activity for unusual SecurityCenterUpdate or HelpCenterUpload transfers, /test.asp or asp.asp?ui= traffic, and outbound uploads using actor-controlled HTTP or FTP infrastructure.",
+    "Pivot from WinRAR/7-Zip staging, C:\\Windows\\Help\\OEM or C:\\Windows\\debug\\WIA data stores, and .tmp/CAB artifacts into HTTP, BITS, FTP, Dropbox, or C2-channel exfiltration.",
+    "Hunt for persistence and collection artifacts including UpdatMachine/UpdateMachineG scheduled tasks, CacheTask_* tasks, AppInit_DLLs/RequireSigned registry changes, %APPDATA%\\Microsoft\\Event Cache modules, and Microsoft\\Feed or Microsoft\\Taskbar dn/up folders.",
+    "Review lateral movement from compromised web or OWA hosts using RDP, SSH, SMB admin shares, PsExec/RemCom/xCmdSvc, CrackMapExec, Mimikatz, Ncrack, and custom SOCKS/proxy tooling such as REDTRIP, PINKTRIP, or BLUETRIP."
+  ],
+  "status": "active",
+  "tags": [
+    "iran",
+    "mois",
+    "state-sponsored",
+    "surveillance",
+    "pii-collection",
+    "travel-sector",
+    "telecommunications",
+    "public-facing-apps",
+    "web-shells",
+    "credential-theft",
+    "http-c2",
+    "bits",
+    "remexi",
+    "mechaflounder",
+    "authored"
+  ]
+}

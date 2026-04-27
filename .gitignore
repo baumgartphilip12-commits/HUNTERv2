@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+
+node_modules/
+
+data/hunter_v2.sqlite3
+data/snapshots/
+data/exports/
+data/imports/
+
+vendor/python/
+
+dist/
+
+mission_partner_hunt_pack_report.docx
+generated_hunt_pack_report.docx

@@ -1,0 +1,117 @@
+{
+  "external_id": "muddywater",
+  "name": "MuddyWater",
+  "summary": "Iranian MOIS-linked cyber espionage group active since at least 2017, targeting government, telecommunications, defense, energy, oil and gas, and regional private-sector organizations. Activity commonly combines spearphishing or public-facing application exploitation with PowerShell and VBScript loaders, DLL side-loading, legitimate RMM abuse, credential dumping, web shells, tunneling or proxying, HTTP(S)/DNS C2, and theft of data or persistent access; recent reporting highlights Atera, ScreenConnect, SimpleHelp, PDQ, Level RMM, custom C2 frameworks, and backdoors such as PhonyC2, DarkBeatC2, MuddyRot, and Phoenix.",
+  "aliases": [
+    "MERCURY",
+    "Static Kitten",
+    "Seedworm",
+    "TEMP.Zagros",
+    "Mango Sandstorm",
+    "TA450",
+    "Earth Vetala",
+    "Boggy Serpens"
+  ],
+  "techniques": [
+    "T1566.001",
+    "T1566.002",
+    "T1190",
+    "T1059.001",
+    "T1059.005",
+    "T1574.002",
+    "T1219",
+    "T1547.001",
+    "T1053.005",
+    "T1071.001",
+    "T1071.004",
+    "T1090.002",
+    "T1003.001",
+    "T1021.001",
+    "T1105"
+  ],
+  "indicators": [
+    {
+      "type": "domain",
+      "value": "sygateway.com"
+    },
+    {
+      "type": "ip",
+      "value": "91.121.240.104"
+    },
+    {
+      "type": "ip",
+      "value": "164.132.237.64"
+    },
+    {
+      "type": "ip",
+      "value": "5.199.133.149"
+    },
+    {
+      "type": "ip",
+      "value": "45.142.213.17"
+    },
+    {
+      "type": "domain",
+      "value": "websiteapicloud.com"
+    },
+    {
+      "type": "domain",
+      "value": "googleonlinee.com"
+    },
+    {
+      "type": "ip",
+      "value": "95.164.46.253"
+    },
+    {
+      "type": "domain",
+      "value": "screenai.online"
+    },
+    {
+      "type": "ip",
+      "value": "159.198.36.115"
+    },
+    {
+      "type": "ip",
+      "value": "51.16.209.105"
+    },
+    {
+      "type": "sha256",
+      "value": "416e937fb467b7092b9f038c1f1ea5ca831dd19ed478cca444a656b5d9440bb4"
+    },
+    {
+      "type": "sha256",
+      "value": "668dd5b6fb06fe30a98dd59dd802258b45394ccd7cd610f0aaab43d801bf1a1e"
+    }
+  ],
+  "references": [
+    "https://attack.mitre.org/groups/G0069/",
+    "https://www.cisa.gov/news-events/cybersecurity-advisories/aa22-055a",
+    "https://www.microsoft.com/en-us/security/blog/2022/08/25/mercury-leveraging-log4j-2-vulnerabilities-in-unpatched-systems-to-target-israeli-organizations/",
+    "https://www.proofpoint.com/us/blog/threat-insight/security-brief-ta450-uses-embedded-links-pdf-attachments-latest-campaign",
+    "https://harfanglab.io/insidethelab/muddywater-rmm-campaign/",
+    "https://www.deepinstinct.com/blog/darkbeatc2-the-latest-muddywater-attack-framework",
+    "https://blog.sekoia.io/muddywater-replaces-atera-by-custom-muddyrot-implant-in-a-recent-campaign/",
+    "https://www.sophos.com/en-us/blog/sophos-mdr-blocks-and-tracks-activity-from-probable-iranian-state-actor-muddywater",
+    "https://www.group-ib.com/blog/muddywater-espionage/"
+  ],
+  "extra_hunts": [
+    "Review spearphishing from compromised accounts that delivers PDF, ZIP, MSI, or document lures through file-sharing services such as OneHub, Sync, TeraBox, Egnyte, Zendesk/Zopim, or similar platforms, then pivot to RMM installer execution.",
+    "Hunt for unexpected AteraAgent, ScreenConnect, SimpleHelp, Syncro, RemoteUtilities, eHorus, Level, PDQ, Tactical RMM, or Ligolo and SSH tunnel activity on endpoints that do not normally use those tools.",
+    "Inspect PowerShell and VBScript chains for encoded or obfuscated commands, mshta/cmstp/rundll32/regsvr32 launchers, PowGoop-style GoogleUpdate.exe and goopdate.dll side-loading, and staging under ProgramData or Public Downloads.",
+    "Review internet-facing Exchange, SysAid, SharePoint, PaperCut, and similar exploitation windows for web shells, new local administrators, registry Run key persistence, WMI or RemCom execution, and outbound HTTP(S), DNS, or raw TCP C2.",
+    "Correlate credential access and staging behavior such as Mimikatz, LaZagne, procdump, reg save of HKLM hives, makecab/archive creation, screenshot/system discovery, and repeated POST or DNS-tunnel traffic to rare infrastructure."
+  ],
+  "status": "active",
+  "tags": [
+    "iran",
+    "mois-linked",
+    "state-sponsored",
+    "espionage",
+    "powershell",
+    "rmm-abuse",
+    "dll-side-loading",
+    "credential-theft",
+    "c2-frameworks",
+    "authored"
+  ]
+}
